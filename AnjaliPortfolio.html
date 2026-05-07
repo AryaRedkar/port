@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anjali Patil | Social Media Strategist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@400;600;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <style>
+
+/* Mouse Glow Effect */
+.cursor-glow {
+    position: fixed;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(
+        circle,
+        rgba(250,204,21,0.22) 0%,
+        rgba(250,204,21,0) 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    filter: blur(20px);
+}
+/* Custom Cursor */
+.custom-cursor {
+    width: 28px;
+    height: 28px;
+    border: 3px solid #facc15;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: transform 0.08s linear;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor.active {
+    transform: translate(-50%, -50%) scale(2.2);
+    background: rgba(250, 204, 21, 0.2);
+}
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #ffffff; 
+            color: #000000; 
+            overflow-x: hidden;
+            position: relative;
+        }
+html {
+    scroll-behavior: smooth;
+}
+        h1, h2, h3, .bold-text { font-family: 'Unbounded', sans-serif; }
+        
+        .marquee { white-space: nowrap; overflow: hidden; display: inline-block; animation: marquee 20s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Video Containers */
+        .video-box-portrait { 
+            position: relative; 
+            width: 100%; 
+            padding-top: 177.78%; /* 9:16 Aspect Ratio */ 
+            background: #111; 
+            border-radius: 4px; 
+            overflow: hidden; 
+            border: 3px solid #000; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .video-box-landscape { 
+            position: relative; 
+            width: 100%; 
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */ 
+            background: #111; 
+            border-radius: 4px; 
+            overflow: hidden; 
+            border: 3px solid #000; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .video-box-landscape:hover, .video-box-portrait:hover {
+            transform: scale(1.02);
+            box-shadow: 12px 12px 0px 0px #facc15;
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .mute-btn {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            z-index: 20;
+            background: #000;
+            color: #fff;
+            padding: 8px 16px;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            border: 2px solid #fff;
+            transition: all 0.2s;
+        }
+        .mute-btn:hover { background: #facc15; color: black; border-color: black; }
+        
+        .neo-shadow { box-shadow: 8px 8px 0px 0px rgba(0,0,0,1); }
+        .neo-shadow-yellow { box-shadow: 8px 8px 0px 0px rgba(250, 204, 21, 1); }
+
+        .grid-bg {
+            background-image: radial-gradient(#ddd 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Work Marquee Styles - SPEED INCREASED */
+        .marquee-infinite {
+    display: flex;
+    width: max-content;
+    animation: scroll-left 40s linear infinite;
+}
+
+@media (max-width: 768px) {
+
+    .marquee-infinite {
+        animation: none;
+        width: max-content;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+}
+    .reel-card {
+        width: 260px;
+    }
+}
+        .group\/marquee:hover .marquee-infinite {
+            animation-play-state: paused;
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .reel-card {
+            width: 320px;
+            flex-shrink: 0;
+        }
+        .work-mute-btn {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            z-index: 30;
+            background: #000;
+            color: #fff;
+            padding: 6px 12px;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            border: 2px solid #fff;
+        }
+        .work-mute-btn:hover { background: #facc15; color: #000; border-color: #000; }
+        
+        /* Hover Reveal Text */
+        .hover-reveal { opacity: 0; transform: translateY(10px); transition: all 0.4s; }
+        .group:hover .hover-reveal { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="selection:bg-yellow-300 grid-bg">
+<div class="custom-cursor"></div>
+<div class="cursor-glow"></div>
+
+
+    <nav class="fixed top-0 w-full z-50 bg-white border-b-4 border-black px-6 py-4 flex justify-between items-center">
+        <div class="text-xl md:text-2xl font-black tracking-tighter">ANJALI<span class="text-yellow-400">.</span>PATIL</div>
+        
+        <div class="flex items-center gap-6 md:gap-10">
+            <div class="hidden md:flex gap-8 text-xs font-black uppercase italic">
+                <a href="#work" class="hover:text-yellow-500 transition underline decoration-4 underline-offset-4 tracking-widest">Work</a>
+            </div>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=patilanjali553@gmail.com" 
+target="_blank"
+class="bg-black text-white px-8 py-3 text-xs font-black uppercase neo-shadow-yellow transition-all duration-200 active:translate-x-1 active:translate-y-1 active:shadow-none">
+    Contact
+</a>
+    </nav>
+
+    <header class="pt-48 pb-32 px-6 border-b-4 border-black relative overflow-hidden bg-white">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <h1 class="text-5xl md:text-[90px] font-black leading-[0.9] uppercase mb-14 tracking-[-6px]">
+    
+    <span class="block">STOP&nbsp;&nbsp;THE</span>
+
+    <span class="block text-yellow-400">
+        SCROLL.
+    </span>
+
+    <span class="block">
+        GROW&nbsp;&nbsp;THE&nbsp;&nbsp; 
+        <span class="underline decoration-[8px] underline-offset-[10px]">
+            BRAND.
+        </span>
+    </span>
+
+</h1>
+            
+            <div class="flex flex-col md:flex-row gap-16 items-start justify-between">
+                <p class="text-base md:text-xl font-black max-w-3xl text-black leading-tight">
+    Hi, I’m Anjali, a creative digital creator skilled in 
+    <span class="bg-yellow-100 px-2">Social Media, Videography, Editing, and Content Creation.</span>
+</p>
+                                    <div class="flex flex-col items-end gap-6 w-full md:w-auto">
+                    <a href="https://www.linkedin.com/in/anjali-patil-96482a293" target="_blank" class="w-full md:w-auto text-center px-7 py-3 md:px-12 md:py-5 border-4 border-black font-black text-sm uppercase hover:bg-black hover:text-white transition-all neo-shadow-yellow active:translate-x-1 active:translate-y-1 active:shadow-none">
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-black text-yellow-400 py-8 border-b-4 border-black overflow-hidden font-black uppercase italic text-3xl relative">
+        <div class="marquee">
+            CONTENT STRATEGY • VIRAL HOOKS • CAPCUT EDITING • ANALYTICS • FIGMA DESIGN • TREND FORECASTING • &nbsp;
+            CONTENT STRATEGY • VIRAL HOOKS • CAPCUT EDITING • ANALYTICS • FIGMA DESIGN • TREND FORECASTING • &nbsp;
+        </div>
+    </div>
+
+    <section id="work" class="py-32 bg-white overflow-hidden border-b-4 border-black relative">
+        <div class="max-w-[100vw]">
+            <div class="px-6 mb-20">
+                <h2 class="text-5xl md:text-8xl font-black uppercase tracking-tighter">My <span class="text-yellow-400">Work</span>.</h2>
+            </div>
+            
+            <div class="relative overflow-x-auto md:overflow-hidden group/marquee">
+                <div class="flex gap-8 marquee-infinite py-10">
+                    <div class="reel-card">
+                        <div class="video-box-portrait neo-shadow">
+                            <video loop muted autoplay playsinline class="work-video"><source src="https://res.cloudinary.com/dcumpet8i/video/upload/reel_1_lvavli.mp4" type="video/mp4"></video>
+                            <div class="absolute top-4 left-4 z-20 bg-black text-white px-3 py-1 text-xs font-black uppercase border-2 border-white">37K VIEWS</div>
+                            <button onclick="toggleMuteWork(event)" class="work-mute-btn">Unmute</button>
+                        </div>
+                    </div>
+                    <div class="reel-card">
+                        <div class="video-box-portrait neo-shadow">
+                            <video loop muted autoplay playsinline class="work-video"><source src="https://res.cloudinary.com/dcumpet8i/video/upload/reel_2_xrofzm.mp4" type="video/mp4"></video>
+                            <div class="absolute top-4 left-4 z-20 bg-black text-white px-3 py-1 text-xs font-black uppercase border-2 border-white">140K VIEWS</div>
+                            <button onclick="toggleMuteWork(event)" class="work-mute-btn">Unmute</button>
+                        </div>
+                    </div>
+                    <div class="reel-card">
+                        <div class="video-box-portrait neo-shadow-yellow">
+                            <video loop muted autoplay playsinline class="work-video"><source src="https://res.cloudinary.com/dcumpet8i/video/upload/reel_3_um4vnw.mp4" type="video/mp4"></video>
+                            <div class="absolute top-4 left-4 z-20 bg-yellow-400 text-black px-3 py-1 text-xs font-black uppercase border-2 border-black">1M VIEWS</div>
+                            <button onclick="toggleMuteWork(event)" class="work-mute-btn">Unmute</button>
+                        </div>
+                    </div>
+                    <div class="reel-card">
+                        <div class="video-box-portrait neo-shadow">
+                            <video loop muted autoplay playsinline class="work-video"><source src="https://res.cloudinary.com/dcumpet8i/video/upload/reel_4_ub5mll.mp4" type="video/mp4"></video>
+                            <div class="absolute top-4 left-4 z-20 bg-black text-white px-3 py-1 text-xs font-black uppercase border-2 border-white">38K VIEWS</div>
+                            <button onclick="toggleMuteWork(event)" class="work-mute-btn">Unmute</button>
+                        </div>
+                    </div>
+                    <div class="reel-card">
+                        <div class="video-box-portrait neo-shadow">
+                            <video loop muted autoplay playsinline class="work-video"><source src="https://res.cloudinary.com/dcumpet8i/video/upload/reel_1_lvavli.mp4" type="video/mp4"></video>
+                            <div class="absolute top-4 left-4 z-20 bg-black text-white px-3 py-1 text-xs font-black uppercase border-2 border-white">37K VIEWS</div>
+                            <button onclick="toggleMuteWork(event)" class="work-mute-btn">Unmute</button>
+                        </div>
+                    </div>
+                    <div class="reel-card">
+                        <div class="video-box-portrait neo-shadow">
+                            <video loop muted autoplay playsinline class="work-video"><source src="https://res.cloudinary.com/dcumpet8i/video/upload/reel_2_xrofzm.mp4" type="video/mp4"></video>
+                            <div class="absolute top-4 left-4 z-20 bg-black text-white px-3 py-1 text-xs font-black uppercase border-2 border-white">140K VIEWS</div>
+                            <button onclick="toggleMuteWork(event)" class="work-mute-btn">Unmute</button>
+                        </div>
+                    </div>
+                    <div class="reel-card">
+                        <div class="video-box-portrait neo-shadow-yellow">
+                            <video loop muted autoplay playsinline class="work-video"><source src="https://res.cloudinary.com/dcumpet8i/video/upload/reel_3_um4vnw.mp4" type="video/mp4"></video>
+                            <div class="absolute top-4 left-4 z-20 bg-yellow-400 text-black px-3 py-1 text-xs font-black uppercase border-2 border-black">1M VIEWS</div>
+                            <button onclick="toggleMuteWork(event)" class="work-mute-btn">Unmute</button>
+                        </div>
+                    </div>
+                    <div class="reel-card">
+                        <div class="video-box-portrait neo-shadow">
+                            <video loop muted autoplay playsinline class="work-video"><source src="https://res.cloudinary.com/dcumpet8i/video/upload/reel_4_ub5mll.mp4" type="video/mp4"></video>
+                            <div class="absolute top-4 left-4 z-20 bg-black text-white px-3 py-1 text-xs font-black uppercase border-2 border-white">38K VIEWS</div>
+                            <button onclick="toggleMuteWork(event)" class="work-mute-btn">Unmute</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reels" class="py-32 bg-black text-white relative border-b-4 border-black">
+     
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-24">
+                <h2 class="text-4xl md:text-8xl font-black uppercase text-yellow-400 italic tracking-tighter">Cinematic Reels.</h2>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-16 items-start">
+                <div class="w-full lg:w-2/3 group">
+                    <div class="video-box-landscape border-4 border-white/10 group-hover:border-yellow-400 transition-all relative overflow-hidden">
+                        <video id="vid-landscape" muted loop 
+                            <source src="https://res.cloudinary.com/dcumpet8i/video/upload/1770535681540452_c4pcwa.mp4" type="video/mp4">
+                        </video>
+                        <button onclick="toggleMute('vid-landscape', event)" class="mute-btn">Unmute</button>
+                    </div>
+                    <div class="mt-8 flex justify-between items-end border-b-4 border-white/20 pb-6">
+                        <span class="font-black uppercase text-3xl text-yellow-400 block">Uttarakhand, India</span>
+                        <div class="hover-reveal text-xs font-black bg-yellow-400 text-black px-4 py-2 uppercase tracking-widest"></div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/3 group">
+                    <div class="video-box-portrait border-4 border-white/10 group-hover:border-yellow-400 transition-all relative overflow-hidden">
+                        <video id="vid-portrait" muted loop 
+                            <source src="https://res.cloudinary.com/dcumpet8i/video/upload/1710512849594860_kam_djeowk.mp4" type="video/mp4">
+                        </video>
+                        <button onclick="toggleMute('vid-portrait', event)" class="mute-btn">Unmute</button>
+                    </div>
+                    <div class="mt-8 flex justify-between items-end border-b-4 border-white/20 pb-6">
+                        <span class="font-black uppercase text-3xl text-yellow-400 block">Jaipur, India</span>
+                        <div class="hover-reveal text-xs font-black bg-yellow-400 text-black px-4 py-2 uppercase tracking-widest"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- EXTRA-CURRICULAR ACTIVITIES SECTION -->
+<section class="py-32 px-6 bg-[#f5f1e8] border-b-4 border-black relative">
+    <div class="max-w-6xl mx-auto">
+
+        <h2 class="text-4xl md:text-6xl font-black uppercase mb-16 tracking-tighter">
+            Extra-Curricular <br>
+            <span class="text-yellow-400">Activities</span>.
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Activity 1 -->
+            <div class="border-8 border-black p-10 bg-[#f5f1e8] neo-shadow-yellow relative transition-all hover:scale-[1.02]">
+
+                <h3 class="text-2xl md:text-3xl font-black uppercase mb-8 leading-tight">
+                    Daily UI Challenge
+                </h3>
+
+                <p class="font-bold text-gray-500 mb-6 uppercase text-xs tracking-widest italic">
+                    30 Days LinkedIn
+                </p>
+
+                <ul class="space-y-4 font-bold text-gray-800 uppercase text-sm leading-snug">
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400">/</span>
+                        Practised layout, typography, visual hierarchy
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400">/</span>
+                        Improved consistency & attention to detail
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400">/</span>
+                        Built confidence in Figma presenting work
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Activity 2 -->
+            <div class="border-8 border-black p-10 bg-[#f5f1e8] neo-shadow-yellow relative transition-all hover:scale-[1.02]">
+
+                <h3 class="text-2xl md:text-3xl font-black uppercase mb-8 leading-tight">
+                    Digital Comm Head
+                </h3>
+
+                <p class="font-bold text-gray-500 mb-6 uppercase text-xs tracking-widest italic">
+                    College Fest Synergy
+                </p>
+
+                <ul class="space-y-4 font-bold text-gray-800 uppercase text-sm leading-snug">
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400">/</span>
+                        Led communication and content strategy
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400">/</span>
+                        Managed content scheduling & engagement
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400">/</span>
+                        Oversaw promotions and video coverage
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Activity 3 -->
+            <div class="border-8 border-black p-10 bg-[#f5f1e8] neo-shadow-yellow relative transition-all hover:scale-[1.02]">
+
+                <h3 class="text-2xl md:text-3xl font-black uppercase mb-8 leading-tight">
+                    Marketing Volunteer
+                </h3>
+
+                <p class="font-bold text-gray-500 mb-6 uppercase text-xs tracking-widest italic">
+                    College Fest Synergy
+                </p>
+
+                <ul class="space-y-4 font-bold text-gray-800 uppercase text-sm leading-snug">
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400">/</span>
+                        Promoted events across campus marketing
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400">/</span>
+                        Distributed promo material on-ground
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <span class="text-yellow-400">/</span>
+                        Helped drive awareness & registrations
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <footer class="py-40 bg-yellow-400 text-black text-center border-t-8 border-black relative overflow-hidden">
+       <div class="relative z-10 text-center">
+
+    <p class="text-sm md:text-base uppercase tracking-[0.4em] font-bold mb-6 text-black/70">
+        OPEN TO WORK
+    </p>
+
+    <h2 class="text-4xl md:text-7xl font-black leading-[0.95] tracking-[-4px] mb-6 uppercase">
+        Let’s Connect.
+    </h2>
+
+    <p class="text-lg md:text-xl font-bold mb-16 text-black/70">
+    Looking for opportunities in social media and digital marketing.
+</p>
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-8">
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=patilanjali553@gmail.com"
+target="_blank"
+class="bg-white text-black px-10 py-4 text-sm font-black uppercase border-4 border-black hover:bg-black hover:text-white transition-all duration-200 neo-shadow">
+    Email
+</a>
+
+        <a href="https://www.linkedin.com/in/anjali-patil-96482a293"
+target="_blank"
+class="bg-white text-black px-10 py-4 text-sm font-black uppercase border-4 border-black hover:bg-black hover:text-white transition-all duration-200 neo-shadow">
+    LinkedIn
+</a>
+
+    </div>
+
+</div>   </footer>
+
+    <script>
+        // Cinematic Reels original hover play/pause logic
+        const cinematicVideos = document.querySelectorAll('#reels video');
+        cinematicVideos.forEach(v => {
+            const container = v.parentElement;
+            container.addEventListener('mouseenter', () => v.play());
+            container.addEventListener('mouseleave', () => v.pause());
+        });
+
+        // Toggle Mute for My Work Section
+        function toggleMuteWork(event) {
+            event.preventDefault(); 
+            event.stopPropagation();
+            const btn = event.currentTarget;
+            const video = btn.closest('.video-box-portrait').querySelector('video');
+            video.muted = !video.muted;
+            btn.textContent = video.muted ? 'Unmute' : 'Mute';
+        }
+
+        // Mute/Unmute Toggle for Cinematic Reels
+        function toggleMute(id, event) {
+            event.stopPropagation();
+            const video = document.getElementById(id);
+            video.muted = !video.muted;
+            event.currentTarget.textContent = video.muted ? 'Unmute' : 'Mute';
+        }
+const glow = document.querySelector('.cursor-glow');
+
+document.addEventListener('mousemove', (e) => {
+
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+
+});
+    </script>
+<script>
+const cursor = document.querySelector('.custom-cursor');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+const hoverElements = document.querySelectorAll(
+    'a, button, .video-box-portrait, .video-box-landscape'
+);
+
+hoverElements.forEach(el => {
+
+    el.addEventListener('mouseenter', () => {
+        cursor.classList.add('active');
+    });
+
+    el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+    });
+
+});
+</script>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+ScrollReveal().reveal('h1', {
+    delay: 200,
+    distance: '60px',
+    duration: 1200,
+    origin: 'bottom',
+    easing: 'cubic-bezier(0.5, 0, 0, 1)'
+});
+
+ScrollReveal().reveal('#work .reel-card', {
+    interval: 150,
+    distance: '40px',
+    duration: 1000,
+    origin: 'bottom'
+});
+
+ScrollReveal().reveal('#reels video', {
+    interval: 200,
+    distance: '60px',
+    duration: 1200,
+    origin: 'left'
+});
+
+ScrollReveal().reveal('section h2', {
+    distance: '50px',
+    duration: 1000,
+    origin: 'bottom'
+});
+
+ScrollReveal().reveal('.neo-shadow, .neo-shadow-yellow', {
+    interval: 120,
+    scale: 0.9,
+    duration: 900
+});
+</script>
+</body>
+</html>
